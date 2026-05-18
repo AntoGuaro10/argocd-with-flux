@@ -9,6 +9,11 @@ spec:
     repoURL: https://github.com/argoproj/argocd-example-apps.git
     targetRevision: HEAD
     path: guestbook
+  syncPolicy:
+    automated:
+      enabled: true
+    syncOptions:
+      - CreateNamespace=true
   destination:
     server: https://kubernetes.default.svc
     namespace: guestbook
