@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/argoproj/argocd-example-apps.git
     targetRevision: HEAD
-    path: guestbook
+    path: kustomize-guestbook
     kustomize:
       ignoreMissingComponents: true
     patches:
