@@ -9,9 +9,19 @@ spec:
     repoURL: https://github.com/argoproj/argocd-example-apps.git
     targetRevision: HEAD
     path: guestbook
+    kustomize:
+      ignoreMissingComponents: true
+    patches:
+      - target:
+          kind: Deployment
+          name: guestbook-ui
+        patch: |-
+          - op: replace
+            path: /spec/replicas
+            value: 0
   syncPolicy:
     automated:
-      enabled: true
+      prune: true
     syncOptions:
       - CreateNamespace=true
   destination:
