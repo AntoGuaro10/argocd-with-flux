@@ -16,9 +16,12 @@ spec:
           kind: Deployment
           name: guestbook-ui
         patch: |-
-          - op: replace
-            path: /spec/replicas
-            value: 0
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: guestbook-ui
+          spec:
+            replicas: 0
   syncPolicy:
     automated:
       prune: true
